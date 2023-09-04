@@ -1,3 +1,15 @@
+lliurex-unattended-upgrades (0.20) jammy; urgency=medium
+
+  * Initial release for jammy
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 04 Sep 2023 13:05:13 +0200
+
+lliurex-unattended-upgrades (0.10) focal; urgency=medium
+
+  * Initial release for focal
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 13 May 2021 12:38:32 +0200
+
 lliurex-unattended-upgrades (0.1) bionic; urgency=medium
 
   * Initial release.
