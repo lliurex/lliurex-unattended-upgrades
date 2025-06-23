@@ -3,7 +3,7 @@ Description="Timer to run lliurex-unattended-upgrades periodically"
 
 [Timer]
 #OnBootSec=5min
-OnUnitActiveSec=1h
+OnUnitActiveSec=2h
 #OnCalendar=Mon..Fri *-*-* 10:00:*
 Unit=lliurex-unattended-upgrades.service
 
