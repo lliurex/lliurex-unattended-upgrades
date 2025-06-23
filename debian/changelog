@@ -1,3 +1,9 @@
+lliurex-unattended-upgrades (1.1) jammy; urgency=medium
+
+  * Install bin files
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 23 Jun 2025 13:03:37 +0200
+
 lliurex-unattended-upgrades (1.0) jammy; urgency=medium
 
   * First version with install unattended packages
