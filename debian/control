@@ -1,0 +1,16 @@
+Source: lliurex-unattended-upgrades
+Section: admin
+Priority: optional
+Maintainer: Equipo LliureX <lliurex@gva.es>
+Build-Depends: debhelper (>= 9.0)
+Standards-Version: 4.1.2
+
+Package: lliurex-unattended-upgrades
+Architecture: all
+Depends: ${misc:Depends}
+Provides: unattended-upgrades
+Breaks: unattended-upgrades
+Replaces: unattended-upgrades
+Description: Lliurex unattended upgrades 
+ Package to mask the installating of unattended-upgrades. 
+
