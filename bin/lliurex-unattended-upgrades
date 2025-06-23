@@ -4,7 +4,7 @@ CUSTOM_PATH="/var/run/llx-rescue"
 CUSTOM_OPTIONS="-o Dir::Etc::SourceParts="" -o Dir::Etc::SourceList="${CUSTOM_PATH}/custom_source_list" -o Dir::State::Lists="${CUSTOM_PATH}/lists""
 
 mkdir -p ${CUSTOM_PATH}/{lists,cache} || true
-echo "deb [ trusted=yes ] http://localhost jammy recovery" >> ${CUSTOM_PATH}/custom_source_list
+echo "deb http://lliurex.net/jammy jammy recovery" >> ${CUSTOM_PATH}/custom_source_list
 
 :>${CUSTOM_PATH}/packages_to_install
 
