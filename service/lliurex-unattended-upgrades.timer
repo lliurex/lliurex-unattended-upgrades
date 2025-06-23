@@ -1,0 +1,11 @@
+[Unit]
+Description="Timer to run lliurex-unattended-upgrades periodically"
+
+[Timer]
+#OnBootSec=5min
+OnUnitActiveSec=1h
+#OnCalendar=Mon..Fri *-*-* 10:00:*
+Unit=lliurex-unattended-upgrades.service
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+CUSTOM_PATH="/var/run/llx-rescue"
+CUSTOM_OPTIONS="-o Dir::Etc::SourceParts="" -o Dir::Etc::SourceList="${CUSTOM_PATH}/custom_source_list" -o Dir::State::Lists="${CUSTOM_PATH}/lists""
+
+mkdir -p ${CUSTOM_PATH}/{lists,cache} || true
+echo "deb [ trusted=yes ] http://localhost jammy recovery" >> ${CUSTOM_PATH}/custom_source_list
+
+:>${CUSTOM_PATH}/packages_to_install
+
+dpkg --configure -a
+
+apt install -f 
+
+
+apt update ${CUSTOM_OPTIONS} 2>/dev/null 1>/dev/null
+comm -23 <(apt-cache ${CUSTOM_OPTIONS} pkgnames | sort) <(dpkg-query -W -f='${Package}\n' | sort) | tee ${CUSTOM_PATH}/packages_to_install && LANG=C apt ${CUSTOM_OPTIONS} list -q --upgradeable 2>/dev/null | grep -o '^[^/]\+' | grep -v 'Listing...' >> ${CUSTOM_PATH}/packages_to_install
+
+apt install $(cat ${CUSTOM_PATH}/packages_to_install)
