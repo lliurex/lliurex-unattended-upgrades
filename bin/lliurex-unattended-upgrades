@@ -2,7 +2,7 @@
 
 CUSTOM_PATH="/var/run/llx-rescue"
 RECOVERY_SOURCES_LIST="/etc/apt/sources.list.d/lliurex-rescue.list"
-[ ! -e ${RECOVERY_SOURCES_LIST} ] || { echo "deb http://lliurex.net/jammy jammy recovery" >> ${RECOVERY_SOURCES_LIST} }
+[ -e ${RECOVERY_SOURCES_LIST} ] || { echo "deb http://lliurex.net/jammy jammy recovery" >> ${RECOVERY_SOURCES_LIST} ; }
 CUSTOM_OPTIONS="-o Dir::Etc::SourceParts="" -o Dir::Etc::SourceList="$RECOVERY_SOURCES_LIST" -o Dir::State::Lists="${CUSTOM_PATH}/lists""
 
 mkdir -p ${CUSTOM_PATH}/{lists,cache} || true
@@ -16,4 +16,4 @@ apt install -f
 apt update ${CUSTOM_OPTIONS} 2>/dev/null 1>/dev/null
 LANG=C apt ${CUSTOM_OPTIONS} list -q --upgradeable 2>/dev/null | grep -o '^[^/]\+' | grep -v 'Listing...' >> ${CUSTOM_PATH}/packages_to_install
 
-apt install $(cat ${CUSTOM_PATH}/packages_to_install)
+apt install $(cat ${CUSTOM_PATH}/packages_to_install) || true
