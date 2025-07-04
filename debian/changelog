@@ -1,3 +1,9 @@
+lliurex-unattended-upgrades (1.3.2) jammy; urgency=medium
+
+  * Modify url 
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Fri, 04 Jul 2025 14:39:57 +0200
+
 lliurex-unattended-upgrades (1.3.1) jammy; urgency=medium
 
   * Fix typo
