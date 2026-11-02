@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CUSTOM_PATH="/var/run/llx-rescue"
-RECOVERY_SOURCES_LIST="/etc/apt/sources.list.d/lliurex-rescue.list"
+RECOVERY_SOURCES_LIST="/etc/apt/sources.list.d/lliurex-rescue.sources"
 if [ ! -e ${RECOVERY_SOURCES_LIST} ]; then
 	cat <<EOF > ${RECOVERY_SOURCES_LIST}
 Types: deb
