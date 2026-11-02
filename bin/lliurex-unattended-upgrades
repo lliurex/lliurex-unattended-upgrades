@@ -2,7 +2,15 @@
 
 CUSTOM_PATH="/var/run/llx-rescue"
 RECOVERY_SOURCES_LIST="/etc/apt/sources.list.d/lliurex-rescue.list"
-[ -e ${RECOVERY_SOURCES_LIST} ] || { echo "deb http://lliurex.net/jammy jammy rescue" >> ${RECOVERY_SOURCES_LIST} ; }
+if [ ! -e ${RECOVERY_SOURCES_LIST} ]; then
+	cat <<EOF > ${RECOVERY_SOURCES_LIST}
+Types: deb
+URIs: http://lliurex.gva.es/noble
+Suite: noble
+Components: rescue
+Enabled: yes
+EOF
+fi
 CUSTOM_OPTIONS="-o Dir::Etc::SourceParts="" -o Dir::Etc::SourceList="$RECOVERY_SOURCES_LIST" -o Dir::State::Lists="${CUSTOM_PATH}/lists""
 
 mkdir -p ${CUSTOM_PATH}/{lists,cache} || true
