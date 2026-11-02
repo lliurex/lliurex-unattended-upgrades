@@ -1,0 +1,28 @@
+#!/bin/bash
+
+CUSTOM_PATH="/var/run/llx-rescue"
+RECOVERY_SOURCES_LIST="/etc/apt/sources.list.d/lliurex-rescue.list"
+if [ ! -e ${RECOVERY_SOURCES_LIST} ]; then
+	cat <<EOF > ${RECOVERY_SOURCES_LIST}
+Types: deb
+URIs: http://lliurex.gva.es/noble
+Suite: noble
+Components: rescue
+Enabled: yes
+EOF
+fi
+CUSTOM_OPTIONS="-o Dir::Etc::SourceParts="" -o Dir::Etc::SourceList="$RECOVERY_SOURCES_LIST" -o Dir::State::Lists="${CUSTOM_PATH}/lists""
+
+mkdir -p ${CUSTOM_PATH}/{lists,cache} || true
+
+:>${CUSTOM_PATH}/packages_to_install
+
+dpkg --configure -a
+
+apt install -f 
+
+apt update ${CUSTOM_OPTIONS} 2>/dev/null 1>/dev/null
+LANG=C apt ${CUSTOM_OPTIONS} list -q --upgradeable 2>/dev/null | grep -o '^[^/]\+' | grep -v 'Listing...' >> ${CUSTOM_PATH}/packages_to_install
+
+apt update
+apt install $(cat ${CUSTOM_PATH}/packages_to_install) || true
