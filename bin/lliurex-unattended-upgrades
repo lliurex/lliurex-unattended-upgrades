@@ -21,8 +21,8 @@ dpkg --configure -a
 
 apt install -f 
 
-apt update ${CUSTOM_OPTIONS} 2>/dev/null 1>/dev/null
+apt update -y ${CUSTOM_OPTIONS} 2>/dev/null 1>/dev/null
 LANG=C apt ${CUSTOM_OPTIONS} list -q --upgradeable 2>/dev/null | grep -o '^[^/]\+' | grep -v 'Listing...' >> ${CUSTOM_PATH}/packages_to_install
 
-apt update
+apt update -y
 apt install $(cat ${CUSTOM_PATH}/packages_to_install) || true
