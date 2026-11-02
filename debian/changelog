@@ -1,3 +1,9 @@
+lliurex-unattended-upgrades (0.32.1) noble; urgency=medium
+
+  * Fix typo
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 02 Nov 2026 18:37:17 +0100
+
 lliurex-unattended-upgrades (0.32) noble; urgency=medium
 
   * Fix path
