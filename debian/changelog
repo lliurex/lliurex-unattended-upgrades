@@ -1,3 +1,10 @@
+lliurex-unattended-upgrades (0.31) noble; urgency=medium
+
+  * Add rescue repository
+  * Add -y option on update script
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 02 Nov 2026 17:45:11 +0100
+
 lliurex-unattended-upgrades (0.30) noble; urgency=medium
 
   * Initial release for noble
