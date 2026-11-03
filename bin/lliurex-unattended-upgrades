@@ -9,6 +9,7 @@ URIs: http://lliurex.gva.es/noble
 Suites: noble
 Components: rescue
 Enabled: yes
+Signed-By: /usr/share/keyrings/lliurex-archive-keyring.gpg
 EOF
 fi
 CUSTOM_OPTIONS="-o Dir::Etc::SourceParts="" -o Dir::Etc::SourceList="$RECOVERY_SOURCES_LIST" -o Dir::State::Lists="${CUSTOM_PATH}/lists""
